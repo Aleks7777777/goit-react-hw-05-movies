@@ -1,10 +1,10 @@
 // import SearchBar from 'components/MoviesPage/MoviesPage';
 import Container from 'components/Container/Container';
 import PageHeading from 'components/Pageheading/Pageheading';
-import MovieList from 'components/MoviesTrending/MovieList.jsx';
+import MovieList from 'components/MoviesTrending/MovieList';
 import { useEffect, useState } from 'react';
 import { getMovies } from 'services/movies-api';
-import NotFoundView from 'not_found/NotFoundView.jsx';
+import NotFoundView from 'not_found/NotFoundView';
 
 export default function GetTrendingMovies() {
 	const [movies, setMovies] = useState([]);

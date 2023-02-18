@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // https://api.themoviedb.org/3/movie/550?api_key=e744dd987f832ad945563dbad49387aa
 
-const API_KEY = 'e744dd987f832ad945563dbad49387aa';
+const API_KEY = '32809710-ecba0a567f38cfb22e7b3a093';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 const END_POINTS = {

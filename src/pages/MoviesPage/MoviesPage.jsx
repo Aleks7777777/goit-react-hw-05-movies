@@ -1,11 +1,11 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import SearchBar from 'components/MoviesPage/SearchBar';
-import { fetchByQuery } from 'services/movies-api';
-import MovieList from 'components/MoviesTrending/MovieList';
-import Container from 'components/Container/Container';
-import PageHeading from 'components/Pageheading/Pageheading';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import { fetchByQuery } from '../../services/movies-api';
+import MovieList from '../../components/MoviesTrending/MovieList';
+import Container from '../../components/Container/Container';
+import PageHeading from '../../components/Pageheading/Pageheading';
 
 const MoviesPage = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -40,7 +40,7 @@ const MoviesPage = () => {
 		fetchMovie();
 	}, [searchRequest]);
 
-	// onSubmit
+
 	function onSubmit(value) {
 		setSearchParams({ query: `${value}` });
 	}
@@ -49,7 +49,7 @@ const MoviesPage = () => {
 		<>
 			<Container>
 				<PageHeading text={'Movie Search'} />
-				{/* <h1>Movies search</h1> */}
+
 				{loading && 'Loading ...'}
 				{error && <div>{error}</div>}
 

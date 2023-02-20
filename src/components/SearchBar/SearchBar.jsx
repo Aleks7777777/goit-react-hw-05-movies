@@ -1,12 +1,11 @@
-import s from './MoviesPage.module.css';
+import style from './SearchBar.module.css';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 const SearchBar = ({ onSearch }) => {
 	const [searchQuery, setSearchQuery] = useState('');
 
-	// const normalizedQuery = () =>
-	//   searchQuery.toLowerCase().trim().split(' ').join('+');
+
 
 	const handleQuerySearch = e => {
 		setSearchQuery(e.target.value.toLowerCase());
@@ -24,7 +23,7 @@ const SearchBar = ({ onSearch }) => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit} className={s.searchForm}>
+			<form onSubmit={handleSubmit} className={style.searchForm}>
 				<input
 					type="text"
 					name="searchQuery"
@@ -33,12 +32,12 @@ const SearchBar = ({ onSearch }) => {
 					autoFocus
 					placeholder="Search ..."
 					onChange={handleQuerySearch}
-					className={s.searchInput}
+					className={style.searchInput}
 				/>
 				<button
 					type="submit"
-					//   onClick={handleInputClear}
-					className={s.searchButton}
+
+					className={style.searchButton}
 				>
 					Search
 				</button>

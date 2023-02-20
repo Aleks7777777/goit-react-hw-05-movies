@@ -1,16 +1,13 @@
-// img, name, character (list)
-import s from './Cast.module.css';
+import style from './Cast.module.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMoviesCredits } from 'services/movies-api';
+import { fetchMoviesCredits } from '../../services/movies-api';
 
 const Cast = () => {
 	const { movieId } = useParams();
-
 	const [cast, setCast] = useState([]);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
-
 	useEffect(() => {
 		const fetchCast = async () => {
 			try {
@@ -25,22 +22,16 @@ const Cast = () => {
 		};
 		fetchCast();
 	}, [movieId]);
-
 	return (
 		<>
 			{loading && 'Loading...'}
 			{error && <div>{error}</div>}
-			<ul className={s.castList}>
+			<ul className={style.castList}>
 				{cast.map(castItem => {
 					return (
-						<li key={castItem.id} className={s.castItem}>
+						<li key={castItem.id} className={style.castItem}>
 							<img
-								// src={
-								//   castItem.profile_path
-								//     ? `https://image.tmdb.org/t/p/w300${castItem.profile_path}`
-								//     : brockenImg
-								// }
-								src={`https://image.tmdb.org/t/p/w300${castItem.profile_path}`}
+								src={`https://image.tmdb.org/t/p/w500${castItem.profile_path}`}
 								alt={`${castItem.name} portrait`}
 							/>
 							<div>

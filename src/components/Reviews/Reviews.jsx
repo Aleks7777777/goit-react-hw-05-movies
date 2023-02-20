@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMoviesReviews } from 'services/movies-api';
+import { fetchMoviesReviews } from '../../services/movies-api';
 
 const Reviews = () => {
 	const { movieId } = useParams();
@@ -12,7 +12,7 @@ const Reviews = () => {
 		const fetchReviews = async () => {
 			try {
 				const res = await fetchMoviesReviews(movieId);
-				console.log(res);
+
 				setReviews(res);
 			} catch (error) {
 				setError(error);
@@ -20,13 +20,11 @@ const Reviews = () => {
 		};
 		fetchReviews();
 	}, [movieId]);
-
 	return (
 		<>
 			{error && <div>{error}</div>}
 			<ul>
 				{reviews.map(review => {
-					// console.log(review);
 					return (
 						<li key={review.id}>
 							<p>Author: {review.author}</p>
@@ -35,7 +33,6 @@ const Reviews = () => {
 					);
 				})}
 			</ul>
-			{/* {reviews} */}
 		</>
 	);
 };
